@@ -15,4 +15,10 @@ describe("cx", () => {
       "one two three",
     );
   });
+
+  test("should allow nested cx", () => {
+    expect(
+      cx("one", ["two", true && "three", false, null, undefined], "four"),
+    ).toEqual("one two three four");
+  });
 });
